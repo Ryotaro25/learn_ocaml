@@ -3,7 +3,7 @@
   -first :: rest 最初の要素がfirstで残りのリストがrest
     という形 *)
 
-(* 目的:受け取ったリストlstに0が含まれているかを調べる *)
+(* 目的:受け取ったリストlstの長さを返す *)
 (* length : int list -> string *)
 let rec length lst = match lst with 
   [] -> 0
