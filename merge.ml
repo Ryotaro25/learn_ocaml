@@ -2,12 +2,12 @@
 (* merge: 'a list -> 'a list *)
 let rec merge lst1 lst2 = match (lst1, lst2) with
   ([], []) -> []
-  |  ([], first2::rest2) -> [] (* merge lst1 lst2 *)
-  |  (first1 :: rest1, []) -> [] (*merge rest1 lst2 *)
+  |  ([], first2::rest2) -> lst2 (* merge lst1 lst2 *)
+  |  (first1 :: rest1, []) -> lst1 (*merge rest1 lst2 *)
   |  (first1 :: rest1, first2 :: rest2) -> 
       if first1 < first2
-      then []
-      else []
+      then first1 :: merge rest1 lst2
+      else first2 :: merge lst1 rest2
 
 
 (* test*) 
