@@ -20,6 +20,9 @@ let hyouji ekimei = match ekimei with
  {kanji = k; kana = ka; romaji = r; shozoku = s;} -> 
    s ^ "," ^ k ^ "(" ^ ka ^ ")"
 
+(* 目的:受け取ったローマ字と駅名リストうけとったら、漢字を返す *)
+(* romaji_to_kanji: string -> ekimei_lst -> string *)
+
 let global_ekimei_list = [ 
 {kanji="代々木上原"; kana="よよぎうえはら"; romaji="yoyogiuehara"; shozoku="千代田線"}; 
 {kanji="代々木公園"; kana="よよぎこうえん"; romaji="yoyogikouen"; shozoku="千代田線"}; 
