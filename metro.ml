@@ -14,6 +14,14 @@ type ekikan_t = {
   kyori :float;    (* 駅間の距離 *)
   jikan :int;      (* 所要時間 *)
 }
+
+(* 駅名、最短距離、駅名のデータ *)
+type eki_t = {
+  namae :string;   (* 起点 *)
+  saitan_kyori : float;  (* 終点 *)
+  temae_list : string list;   (* 経由 *)
+}
+
 (* 目的:受け取ったデータから路線名、駅名(かな）を返す*)
 (* hyouji: ekimei_t -> ekimei_t *)
 let hyouji ekimei = match ekimei with
