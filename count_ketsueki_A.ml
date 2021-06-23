@@ -24,12 +24,15 @@ let lst5 = [{namae = "ryo"; ketsuekigata = "A"};
 
 (* 目的 一人分のデータのうち血液型がAの人の数を返す *)
 (* count_ketsueki_A : person_t list -> int *)
-let rec count_ketsueki_A lst= match lst with
+let rec count_ketsueki lst ketsueki = match lst with
   [] -> 0
   | {namae = n; ketsuekigata = k}::rest 
-    -> if k = "A" then 1 + count_ketsueki_A rest
-                  else count_ketsueki_A rest 
+    -> if k = ketsueki then 1 + count_ketsueki rest ketsueki
+                  else count_ketsueki rest ketsueki
 
+(* 目的：血液型lstのうち血液型Aの人を返す *)
+(* count_ketsueki_A: person_t list -> int *)                  
+let count_ketsueki_A lst = count_ketsueki lst "A"
 (* test *)
 let test1 = count_ketsueki_A lst1 = 0
 let test2 = count_ketsueki_A lst2 = 1
