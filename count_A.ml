@@ -17,14 +17,14 @@ let lst3 = [{namae = "asai" ; tensuu = 70; seiseki = "B"};
             {namae = "kaneko" ; tensuu = 80; seiseki = "A"}]
 
 (* 目的 学生リストlstのうち成績がAの人の数を返す *)
-(* count_A : gakusei_t list -> int *)
-let rec count_A lst = match lst with
+(* count : gakusei_t list -> int *)
+let rec count lst seiseki0 = match lst with
   [] -> 0
   | {namae = n; tensuu = t; seiseki = s} :: rest
-                                     -> if s = "A" then 1 + count_A rest  (* count_A rest *)
-                                                   else count_A rest
+                                     -> if s = seiseki0 then 1 + count rest seiseki0 (* count rest *)
+                                                   else count rest seiseki0
 
 (* test *)
-let test1 = count_A lst1 = 0
-let test2 = count_A lst2 = 0
-let test3 = count_A lst3 = 1
+let test1 = count lst1 "A" = 0
+let test2 = count lst2 "A"= 0
+let test3 = count lst3 "A"= 1
